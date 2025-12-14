@@ -10,6 +10,7 @@ The system is composed of:
 - LLM via Ollama (`llama3.2:latest`) with streaming responses
 
 
+
 ## 1. High-Level Goal
 - Problem: Local, private question-answering over personal PDFs using semantic retrieval + LLMs, without cloud dependencies.
 - Users: Engineers, analysts, and privacy-conscious individuals.
@@ -188,6 +189,41 @@ The system is composed of:
 - Name: `OPENSEARCH_INDEX = "documents"`.
 - Mapping: `src/index_config.json` defines `knn_vector` field `embedding` with FAISS/HNSW, `space_type: l2`.
 - `text` is `type: text`, `document_name` is `keyword`.
+
+#### What `GET documents/_mapping` Means
+When you run `GET documents/_mapping` in Dev Tools and see:
+
+```
+{
+	"documents": {
+		"mappings": {
+			"properties": {
+				"document_name": { "type": "keyword" },
+				"embedding": {
+					"type": "knn_vector",
+					"dimension": 768,
+					"method": {
+						"engine": "faiss",
+						"space_type": "l2",
+						"name": "hnsw",
+						"parameters": {}
+					}
+				},
+				"text": { "type": "text" }
+			}
+		}
+	}
+}
+```
+
+- **`text: text`**: Full‑text field analyzed by BM25 for keyword search and highlighting. Stores your chunk content.
+- **`document_name: keyword`**: Exact‑match field for filtering/aggregations. Holds the original filename for each chunk.
+- **`embedding: knn_vector`**: Numeric vector used for nearest‑neighbor queries.
+	- **`dimension: 768`**: Matches the embedding size from `all-mpnet-base-v2`.
+	- **`method: faiss + hnsw`**: Uses FAISS with HNSW index for fast approximate KNN.
+	- **`space_type: l2`**: Distance metric (Euclidean). Lower distance = closer semantic similarity.
+
+Together, these fields enable hybrid search: BM25 over `text` and KNN over `embedding`, then combined by the search pipeline.
 ### 7.2 Indexing Flow
 - Stored metadata: `text` (optionally prefixed if asymmetric), `embedding` (list[float]), `document_name`.
 - IDs: `_id` is `"{filename}_{i}"` per chunk; document identity maintained through `document_name`.
@@ -312,6 +348,26 @@ Run the backend locally:
 pip install fastapi uvicorn
 uvicorn src.server:app --host 0.0.0.0 --port 8000
 ```
+
+## OpenSearch Dashboards Setup
+Follow these steps to visualize your `documents` index in OpenSearch Dashboards.
+
+- **Start Dashboards:** Ensure the container is running (see Docker commands above). Default URL: http://localhost:5601
+- **Create Data View:**
+	- Open Dashboards → Discover → "Create data view".
+	- **Name:** `documents`
+	- **Index pattern:** `documents`
+	- **Timestamp field:** None (leave unset)
+	- Save.
+- **Discover Documents:**
+	- Go to Discover and select the `documents` data view.
+	- Add columns `text` and `document_name` for readability.
+	- Use search bar to filter, e.g., `CGPA` or `document_name: YourFile.pdf`.
+- **Verify Counts:** Compare with Dev Tools `GET documents/_count`.
+
+Screenshot placeholder:
+
+![Dashboards Data View](images/dashboards-data-view.png)
 
 Example frontend calls:
 ```bash
