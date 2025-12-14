@@ -10,6 +10,7 @@ The system is composed of:
 - LLM via Ollama (`llama3.2:latest`) with streaming responses
 
 
+
 ## 1. High-Level Goal
 - Problem: Local, private question-answering over personal PDFs using semantic retrieval + LLMs, without cloud dependencies.
 - Users: Engineers, analysts, and privacy-conscious individuals.
@@ -473,56 +474,76 @@ Routing breakdown:
 ## Full Flow Diagram
 ```mermaid
 flowchart TD
-	subgraph UI["Streamlit UI"]
+	%% =======================
+	%% UI LAYER
+	%% =======================
+	subgraph UI["🖥️ Streamlit UI"]
 		W["Welcome.py"]
-		C["1_🤖_Chatbot.py"]
-		U["2_📄_Upload_Documents.py"]
+		C["🤖 Chatbot"]
+		U["📄 Upload Documents"]
 	end
 
-	subgraph Core["Backend Modules"]
-		CHAT["src/chat.py"]
-		EMB["src/embeddings.py"]
-		OS["src/opensearch.py"]
-		ING["src/ingestion.py"]
-		OCR["src/ocr.py"]
-		UT["src/utils.py"]
-		CN["src/constants.py"]
+	%% =======================
+	%% BACKEND CORE
+	%% =======================
+	subgraph Core["⚙️ Backend Modules"]
+		CHAT["chat.py"]
+		EMB["embeddings.py"]
+		OS["opensearch.py"]
+		ING["ingestion.py"]
+		OCR["ocr.py"]
+		UT["utils.py"]
+		CN["constants.py"]
 	end
 
-	subgraph OpenSearch["OpenSearch"]
-		IDX["documents index<br/>text(text)<br/>document_name(keyword)<br/>embedding(knn_vector:768)"]
-		MAP["index_config.json<br/>FAISS + HNSW<br/>space_type = l2"]
-		PIPE["nlp-search-pipeline<br/>min_max + weighted mean<br/>(0.3 , 0.7)"]
+	%% =======================
+	%% OPENSEARCH
+	%% =======================
+	subgraph OpenSearch["🔍 OpenSearch"]
+		IDX["Documents Index<br/>text + metadata + embedding(768d)"]
+		MAP["Index Config<br/>FAISS + HNSW"]
+		PIPE["Search Pipeline<br/>Hybrid scoring"]
 	end
 
-	subgraph LLM["Ollama"]
-		MODEL["OLLAMA_MODEL_NAME<br/>temperature, top_p, top_k"]
+	%% =======================
+	%% LLM
+	%% =======================
+	subgraph LLM["🧠 Ollama LLM"]
+		MODEL["LLM Model<br/>temp, top_p, top_k"]
 	end
 
-	%% UI navigation
+	%% =======================
+	%% UI NAVIGATION
+	%% =======================
 	W --> C
 	W --> U
 
-	%% Upload flow
+	%% =======================
+	%% INGESTION FLOW
+	%% =======================
 	U --> UT
 	U --> OCR
 	OCR --> UT
 	U --> EMB
 	EMB -->|"768d vectors"| ING
-	ING -->|"bulk index<br/>_id = filename_i"| IDX
+	ING -->|"bulk index"| IDX
 
-	%% Chat flow
+	%% =======================
+	%% CHAT FLOW
+	%% =======================
 	C --> CHAT
-	CHAT -->|"encode query<br/>768d"| EMB
-	CHAT -->|"build hybrid query"| OS
-	OS -->|"text + knn search<br/>(k = top_k)"| IDX
+	CHAT -->|"encode query"| EMB
+	CHAT -->|"hybrid query"| OS
+	OS -->|"text + knn"| IDX
 	OS --> PIPE
 	PIPE --> CHAT
-	IDX -->|"hits = top_k<br/>exclude embedding"| CHAT
-	CHAT -->|"prompt with top_k chunks"| MODEL
+	IDX -->|"top_k chunks"| CHAT
+	CHAT -->|"final prompt"| MODEL
 	MODEL --> C
 
-	%% Config & utilities
+	%% =======================
+	%% CONFIG & UTILITIES
+	%% =======================
 	CN --> CHAT
 	CN --> EMB
 	CN --> OS
@@ -531,8 +552,106 @@ flowchart TD
 	CN --> C
 	UT --> C
 	UT --> U
+
+	%% =======================
+	%% STYLES
+	%% =======================
+	classDef ui fill:#E3F2FD,stroke:#1E88E5,stroke-width:1.5px;
+	classDef core fill:#E8F5E9,stroke:#2E7D32,stroke-width:1.5px;
+	classDef search fill:#FFF3E0,stroke:#EF6C00,stroke-width:1.5px;
+	classDef llm fill:#F3E5F5,stroke:#8E24AA,stroke-width:1.5px;
+
+	class W,C,U ui
+	class CHAT,EMB,OS,ING,OCR,UT,CN core
+	class IDX,MAP,PIPE search
+	class MODEL llm
+
 ```
 
+```mermaid
+flowchart TD
+	%% =======================
+	%% UI LAYER
+	%% =======================
+	subgraph UI["🖥️ Streamlit UI"]
+		W["(0) Welcome"]
+		C["(5) 🤖 Chatbot"]
+		U["(1) 📄 Upload Documents"]
+	end
+
+	%% =======================
+	%% BACKEND CORE
+	%% =======================
+	subgraph Core["⚙️ Backend Modules"]
+		OCR["(2) OCR"]
+		UT["(3) Utils"]
+		EMB["(4) Embeddings"]
+		ING["(5) Ingestion"]
+		CHAT["(6) Chat Logic"]
+		OS["(7) OpenSearch Query"]
+		CN["Constants"]
+	end
+
+	%% =======================
+	%% OPENSEARCH
+	%% =======================
+	subgraph OpenSearch["🔍 OpenSearch"]
+		IDX["(8) Vector Index<br/>text + embedding"]
+		PIPE["(9) Hybrid Search Pipeline"]
+	end
+
+	%% =======================
+	%% LLM
+	%% =======================
+	subgraph LLM["🧠 Ollama"]
+		MODEL["(10) LLM Generation"]
+	end
+
+	%% =======================
+	%% INGESTION FLOW
+	%% =======================
+	W --> U
+	U -->|"1. upload"| OCR
+	OCR -->|"2. extract text"| UT
+	UT -->|"3. clean text"| EMB
+	EMB -->|"4. 768d vectors"| ING
+	ING -->|"5. bulk index"| IDX
+
+	%% =======================
+	%% CHAT / QUERY FLOW
+	%% =======================
+	W --> C
+	C -->|"6. user query"| CHAT
+	CHAT -->|"7. encode query"| EMB
+	CHAT -->|"8. hybrid search"| OS
+	OS -->|"9. text + knn"| IDX
+	OS --> PIPE
+	PIPE -->|"10. ranked chunks"| CHAT
+	CHAT -->|"11. prompt"| MODEL
+	MODEL -->|"12. answer"| C
+
+	%% =======================
+	%% CONFIG
+	%% =======================
+	CN --> CHAT
+	CN --> EMB
+	CN --> OS
+	CN --> ING
+
+	%% =======================
+	%% STYLES
+	%% =======================
+	classDef ui fill:#E3F2FD,stroke:#1E88E5,stroke-width:1.5px;
+	classDef core fill:#E8F5E9,stroke:#2E7D32,stroke-width:1.5px;
+	classDef search fill:#FFF3E0,stroke:#EF6C00,stroke-width:1.5px;
+	classDef llm fill:#F3E5F5,stroke:#8E24AA,stroke-width:1.5px;
+
+	class W,C,U ui
+	class OCR,UT,EMB,ING,CHAT,OS,CN core
+	class IDX,PIPE search
+	class MODEL llm
+
+```
 ### Diagram Legend
 - UI: Streamlit pages for chat and upload.
 - `embedding(knn_vector:768)`: Vector field mapped with dimension 768.
