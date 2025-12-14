@@ -1,0 +1,1 @@
+### Download your embedding model supported by SentenceTransformer here for quicker load time

@@ -1,0 +1,547 @@
+2025-12-14 23:20:26,916 - INFO - Applied custom CSS styling.
+2025-12-14 23:20:27,056 - INFO - Logo displayed.
+2025-12-14 23:20:27,057 - INFO - Displayed sidebar content.
+2025-12-14 23:20:27,057 - INFO - Displayed main welcome content.
+2025-12-14 23:20:31,317 - INFO - Applied custom CSS styling.
+2025-12-14 23:20:31,355 - INFO - Logo displayed.
+2025-12-14 23:20:31,355 - INFO - Displayed sidebar content.
+2025-12-14 23:20:31,355 - INFO - Displayed main welcome content.
+2025-12-14 23:20:38,911 - INFO - Custom CSS applied.
+2025-12-14 23:20:38,911 - INFO - OpenSearch client initialized.
+2025-12-14 23:20:38,912 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:20:38,922 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.010s]
+2025-12-14 23:20:38,922 - INFO - Index documents already exists.
+2025-12-14 23:20:38,945 - INFO - Logo displayed.
+2025-12-14 23:20:38,945 - INFO - Sidebar configured with headers and footer.
+2025-12-14 23:20:38,946 - INFO - Loading embedding model from path: sentence-transformers/all-mpnet-base-v2
+2025-12-14 23:20:38,978 - INFO - Use pytorch device_name: mps
+2025-12-14 23:20:38,978 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-12-14 23:20:43,051 - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-14 23:20:43,051 - INFO - Model llama3.2:latest not found locally. Pulling the model...
+2025-12-14 23:20:44,065 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/pull "HTTP/1.1 200 OK"
+2025-12-14 23:20:44,065 - INFO - Model llama3.2:latest has been pulled and is now available locally.
+2025-12-14 23:20:44,067 - INFO - Embedding model loaded.
+2025-12-14 23:21:15,180 - INFO - Custom CSS applied.
+2025-12-14 23:21:15,183 - INFO - OpenSearch client initialized.
+2025-12-14 23:21:15,185 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:21:15,198 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.013s]
+2025-12-14 23:21:15,198 - INFO - Index documents already exists.
+2025-12-14 23:21:15,237 - INFO - Logo displayed.
+2025-12-14 23:21:15,237 - INFO - Sidebar configured with headers and footer.
+2025-12-14 23:21:15,238 - INFO - User input received.
+2025-12-14 23:21:15,238 - INFO - Performing hybrid search.
+2025-12-14 23:21:15,617 - INFO - OpenSearch client initialized.
+2025-12-14 23:21:15,637 - INFO - POST http://localhost:9200/documents/_search?search_pipeline=nlp-search-pipeline [status:200 request:0.020s]
+2025-12-14 23:21:15,638 - INFO - Hybrid search completed for query 'Hi , how are you ?' with top_k=5.
+2025-12-14 23:21:15,638 - INFO - Hybrid search completed.
+2025-12-14 23:21:15,638 - INFO - Prompt constructed with context and conversation history.
+2025-12-14 23:21:15,638 - INFO - Streaming response from LLaMA model.
+2025-12-14 23:21:16,734 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-14 23:21:17,651 - INFO - Response generated and displayed.
+2025-12-14 23:23:55,868 - INFO - OpenSearch client initialized.
+2025-12-14 23:23:55,870 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:23:55,879 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.009s]
+2025-12-14 23:23:55,879 - INFO - Index documents already exists.
+2025-12-14 23:23:55,885 - INFO - POST http://localhost:9200/documents/_search [status:200 request:0.006s]
+2025-12-14 23:23:55,885 - INFO - Retrieved document names from OpenSearch.
+2025-12-14 23:24:14,075 - INFO - OpenSearch client initialized.
+2025-12-14 23:24:14,076 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:24:14,081 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.005s]
+2025-12-14 23:24:14,081 - INFO - Index documents already exists.
+2025-12-14 23:24:14,087 - INFO - POST http://localhost:9200/documents/_search [status:200 request:0.005s]
+2025-12-14 23:24:14,087 - INFO - Retrieved document names from OpenSearch.
+2025-12-14 23:24:14,088 - INFO - File 'Consolidated_finalMarksheet.pdf' saved to 'uploaded_files/Consolidated_finalMarksheet.pdf'.
+2025-12-14 23:24:14,182 - INFO - Text cleaned.
+2025-12-14 23:24:14,182 - INFO - Text prepared for chunking.
+2025-12-14 23:24:14,182 - INFO - Text split into 7 chunks with chunk size 300 and overlap 100.
+2025-12-14 23:24:15,836 - INFO - Generated embeddings for 7 text chunks.
+2025-12-14 23:24:15,836 - INFO - OpenSearch client initialized.
+2025-12-14 23:24:15,911 - INFO - POST http://localhost:9200/_bulk [status:200 request:0.073s]
+2025-12-14 23:24:15,911 - INFO - Bulk indexed 7 documents into index documents with 0 errors.
+2025-12-14 23:24:15,911 - INFO - File 'Consolidated_finalMarksheet.pdf' uploaded and indexed.
+2025-12-14 23:25:11,868 - INFO - Custom CSS applied.
+2025-12-14 23:25:11,871 - INFO - OpenSearch client initialized.
+2025-12-14 23:25:11,872 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:25:11,881 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.008s]
+2025-12-14 23:25:11,881 - INFO - Index documents already exists.
+2025-12-14 23:25:11,924 - INFO - Logo displayed.
+2025-12-14 23:25:11,924 - INFO - Sidebar configured with headers and footer.
+2025-12-14 23:27:00,118 - INFO - Custom CSS applied.
+2025-12-14 23:27:00,121 - INFO - OpenSearch client initialized.
+2025-12-14 23:27:00,122 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:27:00,133 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.010s]
+2025-12-14 23:27:00,133 - INFO - Index documents already exists.
+2025-12-14 23:27:00,177 - INFO - Logo displayed.
+2025-12-14 23:27:00,178 - INFO - Sidebar configured with headers and footer.
+2025-12-14 23:27:00,179 - INFO - User input received.
+2025-12-14 23:27:00,180 - INFO - Performing hybrid search.
+2025-12-14 23:27:00,383 - INFO - OpenSearch client initialized.
+2025-12-14 23:27:00,431 - INFO - POST http://localhost:9200/documents/_search?search_pipeline=nlp-search-pipeline [status:200 request:0.048s]
+2025-12-14 23:27:00,431 - INFO - Hybrid search completed for query 'what is the policy number ?' with top_k=5.
+2025-12-14 23:27:00,431 - INFO - Hybrid search completed.
+2025-12-14 23:27:00,432 - INFO - Prompt constructed with context and conversation history.
+2025-12-14 23:27:00,432 - INFO - Streaming response from LLaMA model.
+2025-12-14 23:27:05,580 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-14 23:27:07,419 - INFO - Response generated and displayed.
+2025-12-14 23:27:15,410 - INFO - Custom CSS applied.
+2025-12-14 23:27:15,411 - INFO - OpenSearch client initialized.
+2025-12-14 23:27:15,413 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:27:15,425 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.012s]
+2025-12-14 23:27:15,425 - INFO - Index documents already exists.
+2025-12-14 23:27:15,466 - INFO - Logo displayed.
+2025-12-14 23:27:15,467 - INFO - Sidebar configured with headers and footer.
+2025-12-14 23:27:15,468 - INFO - Embedding model loaded.
+2025-12-14 23:27:43,649 - INFO - Custom CSS applied.
+2025-12-14 23:27:43,654 - INFO - OpenSearch client initialized.
+2025-12-14 23:27:43,655 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:27:43,677 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.021s]
+2025-12-14 23:27:43,677 - INFO - Index documents already exists.
+2025-12-14 23:27:43,722 - INFO - Logo displayed.
+2025-12-14 23:27:43,723 - INFO - Sidebar configured with headers and footer.
+2025-12-14 23:27:43,723 - INFO - User input received.
+2025-12-14 23:27:43,723 - INFO - Performing hybrid search.
+2025-12-14 23:27:44,068 - INFO - OpenSearch client initialized.
+2025-12-14 23:27:44,102 - INFO - POST http://localhost:9200/documents/_search?search_pipeline=nlp-search-pipeline [status:200 request:0.034s]
+2025-12-14 23:27:44,103 - INFO - Hybrid search completed for query 'what is the roll number in the marksheet and cgpa?' with top_k=5.
+2025-12-14 23:27:44,103 - INFO - Hybrid search completed.
+2025-12-14 23:27:44,103 - INFO - Prompt constructed with context and conversation history.
+2025-12-14 23:27:44,103 - INFO - Streaming response from LLaMA model.
+2025-12-14 23:27:46,925 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-14 23:27:48,642 - INFO - Response generated and displayed.
+2025-12-14 23:40:31,012 - INFO - OpenSearch client initialized.
+2025-12-14 23:40:31,013 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:40:31,022 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.009s]
+2025-12-14 23:40:31,022 - INFO - Index documents already exists.
+2025-12-14 23:40:31,030 - INFO - POST http://localhost:9200/documents/_search [status:200 request:0.008s]
+2025-12-14 23:40:31,030 - INFO - Retrieved document names from OpenSearch.
+2025-12-14 23:41:23,684 - INFO - OpenSearch client initialized.
+2025-12-14 23:41:23,684 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:41:23,694 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.010s]
+2025-12-14 23:41:23,694 - INFO - Index documents already exists.
+2025-12-14 23:41:23,702 - INFO - POST http://localhost:9200/documents/_search [status:200 request:0.007s]
+2025-12-14 23:41:23,702 - INFO - Retrieved document names from OpenSearch.
+2025-12-14 23:41:23,791 - INFO - File 'CIEC Cybersecurity Magazine August 2025 (1).pdf' saved to 'uploaded_files/CIEC Cybersecurity Magazine August 2025 (1).pdf'.
+2025-12-14 23:41:23,800 - WARNING - unknown widths : 
+[0, IndirectObject(265, 0, 5907056800)]
+2025-12-14 23:41:23,800 - WARNING - unknown widths : 
+[0, IndirectObject(268, 0, 5907056800)]
+2025-12-14 23:41:23,811 - WARNING - unknown widths : 
+[0, IndirectObject(273, 0, 5907056800)]
+2025-12-14 23:41:23,812 - WARNING - unknown widths : 
+[0, IndirectObject(276, 0, 5907056800)]
+2025-12-14 23:41:23,812 - WARNING - unknown widths : 
+[0, IndirectObject(279, 0, 5907056800)]
+2025-12-14 23:41:23,812 - WARNING - unknown widths : 
+[0, IndirectObject(282, 0, 5907056800)]
+2025-12-14 23:41:23,819 - WARNING - unknown widths : 
+[0, IndirectObject(289, 0, 5907056800)]
+2025-12-14 23:41:23,819 - WARNING - unknown widths : 
+[0, IndirectObject(292, 0, 5907056800)]
+2025-12-14 23:41:23,820 - WARNING - unknown widths : 
+[0, IndirectObject(295, 0, 5907056800)]
+2025-12-14 23:41:23,820 - WARNING - unknown widths : 
+[0, IndirectObject(298, 0, 5907056800)]
+2025-12-14 23:41:23,823 - WARNING - unknown widths : 
+[0, IndirectObject(303, 0, 5907056800)]
+2025-12-14 23:41:23,824 - WARNING - unknown widths : 
+[0, IndirectObject(306, 0, 5907056800)]
+2025-12-14 23:41:23,824 - WARNING - unknown widths : 
+[0, IndirectObject(309, 0, 5907056800)]
+2025-12-14 23:41:23,844 - WARNING - unknown widths : 
+[0, IndirectObject(312, 0, 5907056800)]
+2025-12-14 23:41:23,844 - WARNING - unknown widths : 
+[0, IndirectObject(315, 0, 5907056800)]
+2025-12-14 23:41:23,844 - WARNING - unknown widths : 
+[0, IndirectObject(318, 0, 5907056800)]
+2025-12-14 23:41:23,844 - WARNING - unknown widths : 
+[0, IndirectObject(321, 0, 5907056800)]
+2025-12-14 23:41:23,850 - WARNING - unknown widths : 
+[0, IndirectObject(324, 0, 5907056800)]
+2025-12-14 23:41:23,851 - WARNING - unknown widths : 
+[0, IndirectObject(327, 0, 5907056800)]
+2025-12-14 23:41:23,851 - WARNING - unknown widths : 
+[0, IndirectObject(330, 0, 5907056800)]
+2025-12-14 23:41:23,851 - WARNING - unknown widths : 
+[0, IndirectObject(333, 0, 5907056800)]
+2025-12-14 23:41:23,851 - WARNING - unknown widths : 
+[0, IndirectObject(336, 0, 5907056800)]
+2025-12-14 23:41:23,869 - INFO - Text cleaned.
+2025-12-14 23:41:23,869 - INFO - Text prepared for chunking.
+2025-12-14 23:41:23,869 - INFO - Text split into 26 chunks with chunk size 300 and overlap 100.
+2025-12-14 23:41:26,245 - INFO - Generated embeddings for 26 text chunks.
+2025-12-14 23:41:26,245 - INFO - OpenSearch client initialized.
+2025-12-14 23:41:26,343 - INFO - POST http://localhost:9200/_bulk [status:200 request:0.092s]
+2025-12-14 23:41:26,343 - INFO - Bulk indexed 26 documents into index documents with 0 errors.
+2025-12-14 23:41:26,343 - INFO - File 'CIEC Cybersecurity Magazine August 2025 (1).pdf' uploaded and indexed.
+2025-12-14 23:41:56,002 - INFO - Custom CSS applied.
+2025-12-14 23:41:56,006 - INFO - OpenSearch client initialized.
+2025-12-14 23:41:56,008 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:41:56,020 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.012s]
+2025-12-14 23:41:56,020 - INFO - Index documents already exists.
+2025-12-14 23:41:56,066 - INFO - Logo displayed.
+2025-12-14 23:41:56,066 - INFO - Sidebar configured with headers and footer.
+2025-12-14 23:42:10,530 - INFO - Custom CSS applied.
+2025-12-14 23:42:10,534 - INFO - OpenSearch client initialized.
+2025-12-14 23:42:10,534 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:42:10,545 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.010s]
+2025-12-14 23:42:10,545 - INFO - Index documents already exists.
+2025-12-14 23:42:10,588 - INFO - Logo displayed.
+2025-12-14 23:42:10,588 - INFO - Sidebar configured with headers and footer.
+2025-12-14 23:42:10,589 - INFO - User input received.
+2025-12-14 23:42:10,589 - INFO - Performing hybrid search.
+2025-12-14 23:42:10,904 - INFO - OpenSearch client initialized.
+2025-12-14 23:42:10,928 - INFO - POST http://localhost:9200/documents/_search?search_pipeline=nlp-search-pipeline [status:200 request:0.023s]
+2025-12-14 23:42:10,928 - INFO - Hybrid search completed for query 'give the summary about the august magazine ?' with top_k=5.
+2025-12-14 23:42:10,928 - INFO - Hybrid search completed.
+2025-12-14 23:42:10,928 - INFO - Prompt constructed with context and conversation history.
+2025-12-14 23:42:10,928 - INFO - Streaming response from LLaMA model.
+2025-12-14 23:42:16,005 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-14 23:42:17,254 - INFO - Response generated and displayed.
+2025-12-14 23:42:19,987 - INFO - OpenSearch client initialized.
+2025-12-14 23:42:19,988 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:42:19,997 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.009s]
+2025-12-14 23:42:19,997 - INFO - Index documents already exists.
+2025-12-14 23:42:20,020 - INFO - POST http://localhost:9200/documents/_search [status:200 request:0.023s]
+2025-12-14 23:42:20,020 - INFO - Retrieved document names from OpenSearch.
+2025-12-14 23:42:20,034 - WARNING - unknown widths : 
+[0, IndirectObject(265, 0, 5907061360)]
+2025-12-14 23:42:20,034 - WARNING - unknown widths : 
+[0, IndirectObject(268, 0, 5907061360)]
+2025-12-14 23:42:20,049 - WARNING - unknown widths : 
+[0, IndirectObject(273, 0, 5907061360)]
+2025-12-14 23:42:20,050 - WARNING - unknown widths : 
+[0, IndirectObject(276, 0, 5907061360)]
+2025-12-14 23:42:20,050 - WARNING - unknown widths : 
+[0, IndirectObject(279, 0, 5907061360)]
+2025-12-14 23:42:20,050 - WARNING - unknown widths : 
+[0, IndirectObject(282, 0, 5907061360)]
+2025-12-14 23:42:20,058 - WARNING - unknown widths : 
+[0, IndirectObject(289, 0, 5907061360)]
+2025-12-14 23:42:20,059 - WARNING - unknown widths : 
+[0, IndirectObject(292, 0, 5907061360)]
+2025-12-14 23:42:20,059 - WARNING - unknown widths : 
+[0, IndirectObject(295, 0, 5907061360)]
+2025-12-14 23:42:20,059 - WARNING - unknown widths : 
+[0, IndirectObject(298, 0, 5907061360)]
+2025-12-14 23:42:20,063 - WARNING - unknown widths : 
+[0, IndirectObject(303, 0, 5907061360)]
+2025-12-14 23:42:20,063 - WARNING - unknown widths : 
+[0, IndirectObject(306, 0, 5907061360)]
+2025-12-14 23:42:20,064 - WARNING - unknown widths : 
+[0, IndirectObject(309, 0, 5907061360)]
+2025-12-14 23:42:20,085 - WARNING - unknown widths : 
+[0, IndirectObject(312, 0, 5907061360)]
+2025-12-14 23:42:20,085 - WARNING - unknown widths : 
+[0, IndirectObject(315, 0, 5907061360)]
+2025-12-14 23:42:20,085 - WARNING - unknown widths : 
+[0, IndirectObject(318, 0, 5907061360)]
+2025-12-14 23:42:20,085 - WARNING - unknown widths : 
+[0, IndirectObject(321, 0, 5907061360)]
+2025-12-14 23:42:20,092 - WARNING - unknown widths : 
+[0, IndirectObject(324, 0, 5907061360)]
+2025-12-14 23:42:20,092 - WARNING - unknown widths : 
+[0, IndirectObject(327, 0, 5907061360)]
+2025-12-14 23:42:20,093 - WARNING - unknown widths : 
+[0, IndirectObject(330, 0, 5907061360)]
+2025-12-14 23:42:20,093 - WARNING - unknown widths : 
+[0, IndirectObject(333, 0, 5907061360)]
+2025-12-14 23:42:20,093 - WARNING - unknown widths : 
+[0, IndirectObject(336, 0, 5907061360)]
+2025-12-14 23:42:24,964 - INFO - Custom CSS applied.
+2025-12-14 23:42:24,968 - INFO - OpenSearch client initialized.
+2025-12-14 23:42:24,969 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:42:24,984 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.015s]
+2025-12-14 23:42:24,985 - INFO - Index documents already exists.
+2025-12-14 23:42:25,022 - INFO - Logo displayed.
+2025-12-14 23:42:25,022 - INFO - Sidebar configured with headers and footer.
+2025-12-14 23:43:49,923 - INFO - OpenSearch client initialized.
+2025-12-14 23:43:49,928 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:43:49,937 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.008s]
+2025-12-14 23:43:49,937 - INFO - Index documents already exists.
+2025-12-14 23:43:49,944 - INFO - POST http://localhost:9200/documents/_search [status:200 request:0.007s]
+2025-12-14 23:43:49,944 - INFO - Retrieved document names from OpenSearch.
+2025-12-14 23:43:49,962 - WARNING - unknown widths : 
+[0, IndirectObject(265, 0, 4707006352)]
+2025-12-14 23:43:49,963 - WARNING - unknown widths : 
+[0, IndirectObject(268, 0, 4707006352)]
+2025-12-14 23:43:49,979 - WARNING - unknown widths : 
+[0, IndirectObject(273, 0, 4707006352)]
+2025-12-14 23:43:49,979 - WARNING - unknown widths : 
+[0, IndirectObject(276, 0, 4707006352)]
+2025-12-14 23:43:49,979 - WARNING - unknown widths : 
+[0, IndirectObject(279, 0, 4707006352)]
+2025-12-14 23:43:49,980 - WARNING - unknown widths : 
+[0, IndirectObject(282, 0, 4707006352)]
+2025-12-14 23:43:49,988 - WARNING - unknown widths : 
+[0, IndirectObject(289, 0, 4707006352)]
+2025-12-14 23:43:49,989 - WARNING - unknown widths : 
+[0, IndirectObject(292, 0, 4707006352)]
+2025-12-14 23:43:49,989 - WARNING - unknown widths : 
+[0, IndirectObject(295, 0, 4707006352)]
+2025-12-14 23:43:49,989 - WARNING - unknown widths : 
+[0, IndirectObject(298, 0, 4707006352)]
+2025-12-14 23:43:49,993 - WARNING - unknown widths : 
+[0, IndirectObject(303, 0, 4707006352)]
+2025-12-14 23:43:49,993 - WARNING - unknown widths : 
+[0, IndirectObject(306, 0, 4707006352)]
+2025-12-14 23:43:49,994 - WARNING - unknown widths : 
+[0, IndirectObject(309, 0, 4707006352)]
+2025-12-14 23:43:50,014 - WARNING - unknown widths : 
+[0, IndirectObject(312, 0, 4707006352)]
+2025-12-14 23:43:50,014 - WARNING - unknown widths : 
+[0, IndirectObject(315, 0, 4707006352)]
+2025-12-14 23:43:50,015 - WARNING - unknown widths : 
+[0, IndirectObject(318, 0, 4707006352)]
+2025-12-14 23:43:50,015 - WARNING - unknown widths : 
+[0, IndirectObject(321, 0, 4707006352)]
+2025-12-14 23:43:50,021 - WARNING - unknown widths : 
+[0, IndirectObject(324, 0, 4707006352)]
+2025-12-14 23:43:50,021 - WARNING - unknown widths : 
+[0, IndirectObject(327, 0, 4707006352)]
+2025-12-14 23:43:50,021 - WARNING - unknown widths : 
+[0, IndirectObject(330, 0, 4707006352)]
+2025-12-14 23:43:50,021 - WARNING - unknown widths : 
+[0, IndirectObject(333, 0, 4707006352)]
+2025-12-14 23:43:50,022 - WARNING - unknown widths : 
+[0, IndirectObject(336, 0, 4707006352)]
+2025-12-14 23:43:51,880 - INFO - OpenSearch client initialized.
+2025-12-14 23:43:51,880 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:43:51,886 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.006s]
+2025-12-14 23:43:51,886 - INFO - Index documents already exists.
+2025-12-14 23:43:51,893 - INFO - POST http://localhost:9200/documents/_search [status:200 request:0.006s]
+2025-12-14 23:43:51,893 - INFO - Retrieved document names from OpenSearch.
+2025-12-14 23:43:51,905 - WARNING - unknown widths : 
+[0, IndirectObject(265, 0, 13150456144)]
+2025-12-14 23:43:51,906 - WARNING - unknown widths : 
+[0, IndirectObject(268, 0, 13150456144)]
+2025-12-14 23:43:51,920 - WARNING - unknown widths : 
+[0, IndirectObject(273, 0, 13150456144)]
+2025-12-14 23:43:51,920 - WARNING - unknown widths : 
+[0, IndirectObject(276, 0, 13150456144)]
+2025-12-14 23:43:51,920 - WARNING - unknown widths : 
+[0, IndirectObject(279, 0, 13150456144)]
+2025-12-14 23:43:51,920 - WARNING - unknown widths : 
+[0, IndirectObject(282, 0, 13150456144)]
+2025-12-14 23:43:51,929 - WARNING - unknown widths : 
+[0, IndirectObject(289, 0, 13150456144)]
+2025-12-14 23:43:51,929 - WARNING - unknown widths : 
+[0, IndirectObject(292, 0, 13150456144)]
+2025-12-14 23:43:51,929 - WARNING - unknown widths : 
+[0, IndirectObject(295, 0, 13150456144)]
+2025-12-14 23:43:51,929 - WARNING - unknown widths : 
+[0, IndirectObject(298, 0, 13150456144)]
+2025-12-14 23:43:51,933 - WARNING - unknown widths : 
+[0, IndirectObject(303, 0, 13150456144)]
+2025-12-14 23:43:51,933 - WARNING - unknown widths : 
+[0, IndirectObject(306, 0, 13150456144)]
+2025-12-14 23:43:51,934 - WARNING - unknown widths : 
+[0, IndirectObject(309, 0, 13150456144)]
+2025-12-14 23:43:51,954 - WARNING - unknown widths : 
+[0, IndirectObject(312, 0, 13150456144)]
+2025-12-14 23:43:51,954 - WARNING - unknown widths : 
+[0, IndirectObject(315, 0, 13150456144)]
+2025-12-14 23:43:51,955 - WARNING - unknown widths : 
+[0, IndirectObject(318, 0, 13150456144)]
+2025-12-14 23:43:51,955 - WARNING - unknown widths : 
+[0, IndirectObject(321, 0, 13150456144)]
+2025-12-14 23:43:51,961 - WARNING - unknown widths : 
+[0, IndirectObject(324, 0, 13150456144)]
+2025-12-14 23:43:51,961 - WARNING - unknown widths : 
+[0, IndirectObject(327, 0, 13150456144)]
+2025-12-14 23:43:51,961 - WARNING - unknown widths : 
+[0, IndirectObject(330, 0, 13150456144)]
+2025-12-14 23:43:51,962 - WARNING - unknown widths : 
+[0, IndirectObject(333, 0, 13150456144)]
+2025-12-14 23:43:51,962 - WARNING - unknown widths : 
+[0, IndirectObject(336, 0, 13150456144)]
+2025-12-14 23:43:52,060 - INFO - Deleted file 'CIEC Cybersecurity Magazine August 2025 (1).pdf' from filesystem.
+2025-12-14 23:43:52,060 - INFO - OpenSearch client initialized.
+2025-12-14 23:43:52,119 - INFO - POST http://localhost:9200/documents/_delete_by_query [status:200 request:0.058s]
+2025-12-14 23:43:52,119 - INFO - Deleted documents with name 'CIEC Cybersecurity Magazine August 2025 (1).pdf' from index documents.
+2025-12-14 23:43:52,730 - INFO - OpenSearch client initialized.
+2025-12-14 23:43:52,730 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:43:52,737 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.007s]
+2025-12-14 23:43:52,737 - INFO - Index documents already exists.
+2025-12-14 23:43:52,744 - INFO - POST http://localhost:9200/documents/_search [status:200 request:0.007s]
+2025-12-14 23:43:52,744 - INFO - Retrieved document names from OpenSearch.
+2025-12-14 23:44:14,285 - INFO - OpenSearch client initialized.
+2025-12-14 23:44:14,286 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:44:14,292 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.007s]
+2025-12-14 23:44:14,293 - INFO - Index documents already exists.
+2025-12-14 23:44:14,299 - INFO - POST http://localhost:9200/documents/_search [status:200 request:0.007s]
+2025-12-14 23:44:14,299 - INFO - Retrieved document names from OpenSearch.
+2025-12-14 23:44:14,389 - INFO - File 'Policy_Certificate_49625208_08122025_policyPDF.pdf' saved to 'uploaded_files/Policy_Certificate_49625208_08122025_policyPDF.pdf'.
+2025-12-14 23:44:14,463 - INFO - Text cleaned.
+2025-12-14 23:44:14,463 - INFO - Text prepared for chunking.
+2025-12-14 23:44:14,463 - INFO - Text split into 13 chunks with chunk size 300 and overlap 100.
+2025-12-14 23:44:15,097 - INFO - Generated embeddings for 13 text chunks.
+2025-12-14 23:44:15,097 - INFO - OpenSearch client initialized.
+2025-12-14 23:44:15,156 - INFO - POST http://localhost:9200/_bulk [status:200 request:0.056s]
+2025-12-14 23:44:15,156 - INFO - Bulk indexed 13 documents into index documents with 0 errors.
+2025-12-14 23:44:15,156 - INFO - File 'Policy_Certificate_49625208_08122025_policyPDF.pdf' uploaded and indexed.
+2025-12-14 23:44:20,980 - INFO - Custom CSS applied.
+2025-12-14 23:44:20,982 - INFO - OpenSearch client initialized.
+2025-12-14 23:44:20,983 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:44:20,994 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.011s]
+2025-12-14 23:44:20,994 - INFO - Index documents already exists.
+2025-12-14 23:44:21,026 - INFO - Logo displayed.
+2025-12-14 23:44:21,026 - INFO - Sidebar configured with headers and footer.
+2025-12-14 23:44:22,918 - INFO - Custom CSS applied.
+2025-12-14 23:44:22,919 - INFO - OpenSearch client initialized.
+2025-12-14 23:44:22,920 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:44:22,927 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.006s]
+2025-12-14 23:44:22,927 - INFO - Index documents already exists.
+2025-12-14 23:44:22,972 - INFO - Logo displayed.
+2025-12-14 23:44:22,972 - INFO - Sidebar configured with headers and footer.
+2025-12-14 23:44:22,973 - INFO - Embedding model loaded.
+2025-12-14 23:44:24,504 - INFO - Custom CSS applied.
+2025-12-14 23:44:24,505 - INFO - OpenSearch client initialized.
+2025-12-14 23:44:24,505 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:44:24,511 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.006s]
+2025-12-14 23:44:24,512 - INFO - Index documents already exists.
+2025-12-14 23:44:24,554 - INFO - Logo displayed.
+2025-12-14 23:44:24,554 - INFO - Sidebar configured with headers and footer.
+2025-12-14 23:44:24,555 - INFO - Embedding model loaded.
+2025-12-14 23:44:47,673 - INFO - Custom CSS applied.
+2025-12-14 23:44:47,680 - INFO - OpenSearch client initialized.
+2025-12-14 23:44:47,681 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:44:47,692 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.010s]
+2025-12-14 23:44:47,692 - INFO - Index documents already exists.
+2025-12-14 23:44:47,726 - INFO - Logo displayed.
+2025-12-14 23:44:47,726 - INFO - Sidebar configured with headers and footer.
+2025-12-14 23:44:47,727 - INFO - User input received.
+2025-12-14 23:44:47,727 - INFO - Performing hybrid search.
+2025-12-14 23:44:47,787 - INFO - OpenSearch client initialized.
+2025-12-14 23:44:47,808 - INFO - POST http://localhost:9200/documents/_search?search_pipeline=nlp-search-pipeline [status:200 request:0.021s]
+2025-12-14 23:44:47,808 - INFO - Hybrid search completed for query 'give the policy number and paid amount ?' with top_k=5.
+2025-12-14 23:44:47,808 - INFO - Hybrid search completed.
+2025-12-14 23:44:47,808 - INFO - Prompt constructed with context and conversation history.
+2025-12-14 23:44:47,808 - INFO - Streaming response from LLaMA model.
+2025-12-14 23:44:50,630 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-14 23:44:50,947 - INFO - Response generated and displayed.
+2025-12-14 23:49:37,474 - INFO - OpenSearch client initialized.
+2025-12-14 23:49:37,477 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:49:37,486 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.009s]
+2025-12-14 23:49:37,486 - INFO - Index documents already exists.
+2025-12-14 23:49:37,496 - INFO - POST http://localhost:9200/documents/_search [status:200 request:0.010s]
+2025-12-14 23:49:37,496 - INFO - Retrieved document names from OpenSearch.
+2025-12-14 23:49:40,614 - INFO - Custom CSS applied.
+2025-12-14 23:49:40,616 - INFO - OpenSearch client initialized.
+2025-12-14 23:49:40,617 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:49:40,625 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.008s]
+2025-12-14 23:49:40,626 - INFO - Index documents already exists.
+2025-12-14 23:49:40,674 - INFO - Logo displayed.
+2025-12-14 23:49:40,675 - INFO - Sidebar configured with headers and footer.
+2025-12-14 23:51:24,240 - INFO - Custom CSS applied.
+2025-12-14 23:51:24,241 - INFO - OpenSearch client initialized.
+2025-12-14 23:51:24,242 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:51:24,250 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.008s]
+2025-12-14 23:51:24,250 - INFO - Index documents already exists.
+2025-12-14 23:51:24,287 - INFO - Logo displayed.
+2025-12-14 23:51:24,288 - INFO - Sidebar configured with headers and footer.
+2025-12-14 23:51:24,289 - INFO - Embedding model loaded.
+2025-12-14 23:53:13,462 - INFO - Custom CSS applied.
+2025-12-14 23:53:13,464 - INFO - OpenSearch client initialized.
+2025-12-14 23:53:13,465 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-14 23:53:13,474 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.009s]
+2025-12-14 23:53:13,474 - INFO - Index documents already exists.
+2025-12-14 23:53:13,514 - INFO - Logo displayed.
+2025-12-14 23:53:13,514 - INFO - Sidebar configured with headers and footer.
+2025-12-14 23:53:13,515 - INFO - Embedding model loaded.
+2025-12-15 00:10:27,269 - INFO - Custom CSS applied.
+2025-12-15 00:10:27,272 - INFO - OpenSearch client initialized.
+2025-12-15 00:10:27,280 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-15 00:10:27,293 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.012s]
+2025-12-15 00:10:27,293 - INFO - Index documents already exists.
+2025-12-15 00:10:27,343 - INFO - Logo displayed.
+2025-12-15 00:10:27,343 - INFO - Sidebar configured with headers and footer.
+2025-12-15 00:10:27,344 - INFO - User input received.
+2025-12-15 00:10:27,344 - INFO - Performing hybrid search.
+2025-12-15 00:10:28,145 - INFO - OpenSearch client initialized.
+2025-12-15 00:10:28,178 - INFO - POST http://localhost:9200/documents/_search?search_pipeline=nlp-search-pipeline [status:200 request:0.032s]
+2025-12-15 00:10:28,178 - INFO - Hybrid search completed for query 'hi , howare yiu ?' with top_k=5.
+2025-12-15 00:10:28,178 - INFO - Hybrid search completed.
+2025-12-15 00:10:28,178 - INFO - Prompt constructed with context and conversation history.
+2025-12-15 00:10:28,178 - INFO - Streaming response from LLaMA model.
+2025-12-15 00:10:33,068 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-15 00:10:33,781 - INFO - Response generated and displayed.
+2025-12-15 00:47:49,184 - INFO - Applied custom CSS styling.
+2025-12-15 00:47:49,322 - INFO - Logo displayed.
+2025-12-15 00:47:49,322 - INFO - Displayed sidebar content.
+2025-12-15 00:47:49,322 - INFO - Displayed main welcome content.
+2025-12-15 00:47:57,643 - INFO - Custom CSS applied.
+2025-12-15 00:47:57,644 - INFO - OpenSearch client initialized.
+2025-12-15 00:47:57,650 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-15 00:47:57,667 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.017s]
+2025-12-15 00:47:57,667 - INFO - Index documents already exists.
+2025-12-15 00:47:57,695 - INFO - Logo displayed.
+2025-12-15 00:47:57,696 - INFO - Sidebar configured with headers and footer.
+2025-12-15 00:47:57,696 - INFO - Loading embedding model from path: sentence-transformers/all-mpnet-base-v2
+2025-12-15 00:47:57,715 - INFO - Use pytorch device_name: mps
+2025-12-15 00:47:57,715 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-12-15 00:48:01,363 - INFO - Embedding models loaded.
+2025-12-15 00:48:01,364 - INFO - OpenSearch client initialized.
+2025-12-15 00:48:01,364 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-15 00:48:01,372 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.008s]
+2025-12-15 00:48:01,372 - INFO - Index documents already exists.
+2025-12-15 00:48:01,387 - INFO - POST http://localhost:9200/documents/_search [status:200 request:0.015s]
+2025-12-15 00:48:01,388 - INFO - Retrieved document names from OpenSearch.
+2025-12-15 00:48:02,828 - INFO - Custom CSS applied.
+2025-12-15 00:48:02,829 - INFO - OpenSearch client initialized.
+2025-12-15 00:48:02,830 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-15 00:48:02,844 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.014s]
+2025-12-15 00:48:02,844 - INFO - Index documents already exists.
+2025-12-15 00:48:02,878 - INFO - Logo displayed.
+2025-12-15 00:48:02,879 - INFO - Sidebar configured with headers and footer.
+2025-12-15 01:00:49,596 - INFO - OpenSearch client initialized.
+2025-12-15 01:00:49,599 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-15 01:00:49,615 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.016s]
+2025-12-15 01:00:49,615 - INFO - Index documents already exists.
+2025-12-15 01:00:49,627 - INFO - POST http://localhost:9200/documents/_search [status:200 request:0.011s]
+2025-12-15 01:00:49,627 - INFO - Retrieved document names from OpenSearch.
+2025-12-15 01:00:53,571 - INFO - Custom CSS applied.
+2025-12-15 01:00:53,573 - INFO - OpenSearch client initialized.
+2025-12-15 01:00:53,574 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-15 01:00:53,582 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.008s]
+2025-12-15 01:00:53,582 - INFO - Index documents already exists.
+2025-12-15 01:00:53,628 - INFO - Logo displayed.
+2025-12-15 01:00:53,628 - INFO - Sidebar configured with headers and footer.
+2025-12-15 01:01:45,971 - INFO - Custom CSS applied.
+2025-12-15 01:01:45,972 - INFO - OpenSearch client initialized.
+2025-12-15 01:01:45,972 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-15 01:01:45,990 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.018s]
+2025-12-15 01:01:45,991 - INFO - Index documents already exists.
+2025-12-15 01:01:46,023 - INFO - Logo displayed.
+2025-12-15 01:01:46,024 - INFO - Sidebar configured with headers and footer.
+2025-12-15 01:01:46,056 - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-15 01:01:46,056 - INFO - Model llama3.2:latest not found locally. Pulling the model...
+2025-12-15 01:01:47,108 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/pull "HTTP/1.1 200 OK"
+2025-12-15 01:01:47,109 - INFO - Model llama3.2:latest has been pulled and is now available locally.
+2025-12-15 01:01:47,111 - INFO - Embedding model loaded.
+2025-12-15 01:01:49,174 - INFO - OpenSearch client initialized.
+2025-12-15 01:01:49,174 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-15 01:01:49,180 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.005s]
+2025-12-15 01:01:49,180 - INFO - Index documents already exists.
+2025-12-15 01:01:49,190 - INFO - POST http://localhost:9200/documents/_search [status:200 request:0.010s]
+2025-12-15 01:01:49,190 - INFO - Retrieved document names from OpenSearch.
+2025-12-15 01:02:12,125 - INFO - Embedding models loaded.
+2025-12-15 01:02:12,125 - INFO - OpenSearch client initialized.
+2025-12-15 01:02:12,126 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-15 01:02:12,133 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.007s]
+2025-12-15 01:02:12,134 - INFO - Index documents already exists.
+2025-12-15 01:02:12,141 - INFO - POST http://localhost:9200/documents/_search [status:200 request:0.007s]
+2025-12-15 01:02:12,141 - INFO - Retrieved document names from OpenSearch.
+2025-12-15 01:03:16,721 - INFO - Embedding models loaded.
+2025-12-15 01:03:16,722 - INFO - OpenSearch client initialized.
+2025-12-15 01:03:16,722 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-15 01:03:16,728 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.006s]
+2025-12-15 01:03:16,728 - INFO - Index documents already exists.
+2025-12-15 01:03:16,737 - INFO - POST http://localhost:9200/documents/_search [status:200 request:0.009s]
+2025-12-15 01:03:16,737 - INFO - Retrieved document names from OpenSearch.
+2025-12-15 01:03:21,574 - INFO - Custom CSS applied.
+2025-12-15 01:03:21,575 - INFO - OpenSearch client initialized.
+2025-12-15 01:03:21,576 - INFO - Index configuration loaded from src/index_config.json.
+2025-12-15 01:03:21,586 - INFO - HEAD http://localhost:9200/documents [status:200 request:0.010s]
+2025-12-15 01:03:21,586 - INFO - Index documents already exists.
+2025-12-15 01:03:21,633 - INFO - Logo displayed.
+2025-12-15 01:03:21,633 - INFO - Sidebar configured with headers and footer.
