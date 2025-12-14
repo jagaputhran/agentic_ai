@@ -470,6 +470,77 @@ Routing breakdown:
 
 ---
 
+## Full Flow Diagram
+```mermaid
+flowchart TD
+	subgraph UI["Streamlit UI"]
+		W["Welcome.py"]
+		C["1_🤖_Chatbot.py"]
+		U["2_📄_Upload_Documents.py"]
+	end
+
+	subgraph Core["Backend Modules"]
+		CHAT["src/chat.py"]
+		EMB["src/embeddings.py"]
+		OS["src/opensearch.py"]
+		ING["src/ingestion.py"]
+		OCR["src/ocr.py"]
+		UT["src/utils.py"]
+		CN["src/constants.py"]
+	end
+
+	subgraph OpenSearch["OpenSearch"]
+		IDX["documents index<br/>text(text)<br/>document_name(keyword)<br/>embedding(knn_vector:768)"]
+		MAP["index_config.json<br/>FAISS + HNSW<br/>space_type = l2"]
+		PIPE["nlp-search-pipeline<br/>min_max + weighted mean<br/>(0.3 , 0.7)"]
+	end
+
+	subgraph LLM["Ollama"]
+		MODEL["OLLAMA_MODEL_NAME<br/>temperature, top_p, top_k"]
+	end
+
+	%% UI navigation
+	W --> C
+	W --> U
+
+	%% Upload flow
+	U --> UT
+	U --> OCR
+	OCR --> UT
+	U --> EMB
+	EMB -->|"768d vectors"| ING
+	ING -->|"bulk index<br/>_id = filename_i"| IDX
+
+	%% Chat flow
+	C --> CHAT
+	CHAT -->|"encode query<br/>768d"| EMB
+	CHAT -->|"build hybrid query"| OS
+	OS -->|"text + knn search<br/>(k = top_k)"| IDX
+	OS --> PIPE
+	PIPE --> CHAT
+	IDX -->|"hits = top_k<br/>exclude embedding"| CHAT
+	CHAT -->|"prompt with top_k chunks"| MODEL
+	MODEL --> C
+
+	%% Config & utilities
+	CN --> CHAT
+	CN --> EMB
+	CN --> OS
+	CN --> ING
+	CN --> U
+	CN --> C
+	UT --> C
+	UT --> U
+```
+
+### Diagram Legend
+- UI: Streamlit pages for chat and upload.
+- `embedding(knn_vector:768)`: Vector field mapped with dimension 768.
+- `FAISS+HNSW, space_type=l2`: Approximate KNN via FAISS using HNSW graph; Euclidean distance metric.
+- `nlp-search-pipeline`: Normalizes scores (min_max) and combines BM25 + KNN (weights 0.3, 0.7).
+- Retrieval `top_k`: Controls both `knn.k` and response `size`; determines number of chunks in prompt.
+- Generation options: `temperature`, `top_p`, `top_k` affect token sampling in Ollama (distinct from retrieval).
+
 ## Quick Reference — Dev Tools Queries
 Here’s a concise cheat sheet for OpenSearch Dashboards Dev Tools.
 
@@ -498,7 +569,7 @@ Here’s a concise cheat sheet for OpenSearch Dashboards Dev Tools.
 			"size": 5
 		}`
  - Hybrid search (BM25 + KNN) in Dev Tools
-	- ```POST documents/_search?search_pipeline=nlp-search-pipeline
+	- `POST documents/_search?search_pipeline=nlp-search-pipeline
 		{
 			"_source": { "exclude": ["embedding"] },
 			"query": {
@@ -510,7 +581,7 @@ Here’s a concise cheat sheet for OpenSearch Dashboards Dev Tools.
 				}
 			},
 			"size": 5
-		}```
+		}`
 	- Note: Replace `[ /* 768 floats */ ]` with a real 768‑d vector (e.g., from `SentenceTransformer(all-mpnet-base-v2).encode(...).tolist()`). An empty or wrong‑length vector returns 400 `[knn] query vector is empty`.
 - Aggregation (list distinct document names)
 	- `GET documents/_search
@@ -526,8 +597,7 @@ Here’s a concise cheat sheet for OpenSearch Dashboards Dev Tools.
 - View search pipeline config
 	- `GET _search/pipeline/nlp-search-pipeline`
 - Create search pipeline (normalization + combination)
- ```
-   PUT _search/pipeline/nlp-search-pipeline
+	- `PUT _search/pipeline/nlp-search-pipeline
 		{
 			"description": "Post processor for hybrid search",
 			"phase_results_processors": [
@@ -538,8 +608,7 @@ Here’s a concise cheat sheet for OpenSearch Dashboards Dev Tools.
 					}
 				}
 			]
-		}
-  ```
+		}`
 - Delete index (use with caution)
 	- `DELETE documents`
 - Recreate index from mapping file (CLI example shown earlier; via app: handled by `create_index`)
