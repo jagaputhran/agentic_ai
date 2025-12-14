@@ -498,7 +498,7 @@ Here’s a concise cheat sheet for OpenSearch Dashboards Dev Tools.
 			"size": 5
 		}`
  - Hybrid search (BM25 + KNN) in Dev Tools
-	- `POST documents/_search?search_pipeline=nlp-search-pipeline
+	- ```POST documents/_search?search_pipeline=nlp-search-pipeline
 		{
 			"_source": { "exclude": ["embedding"] },
 			"query": {
@@ -510,7 +510,7 @@ Here’s a concise cheat sheet for OpenSearch Dashboards Dev Tools.
 				}
 			},
 			"size": 5
-		}`
+		}```
 	- Note: Replace `[ /* 768 floats */ ]` with a real 768‑d vector (e.g., from `SentenceTransformer(all-mpnet-base-v2).encode(...).tolist()`). An empty or wrong‑length vector returns 400 `[knn] query vector is empty`.
 - Aggregation (list distinct document names)
 	- `GET documents/_search
@@ -526,7 +526,8 @@ Here’s a concise cheat sheet for OpenSearch Dashboards Dev Tools.
 - View search pipeline config
 	- `GET _search/pipeline/nlp-search-pipeline`
 - Create search pipeline (normalization + combination)
-	- `PUT _search/pipeline/nlp-search-pipeline
+ ```
+   PUT _search/pipeline/nlp-search-pipeline
 		{
 			"description": "Post processor for hybrid search",
 			"phase_results_processors": [
@@ -537,7 +538,8 @@ Here’s a concise cheat sheet for OpenSearch Dashboards Dev Tools.
 					}
 				}
 			]
-		}`
+		}
+  ```
 - Delete index (use with caution)
 	- `DELETE documents`
 - Recreate index from mapping file (CLI example shown earlier; via app: handled by `create_index`)
