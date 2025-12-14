@@ -10,7 +10,6 @@ The system is composed of:
 - LLM via Ollama (`llama3.2:latest`) with streaming responses
 
 
-
 ## 1. High-Level Goal
 - Problem: Local, private question-answering over personal PDFs using semantic retrieval + LLMs, without cloud dependencies.
 - Users: Engineers, analysts, and privacy-conscious individuals.
@@ -264,6 +263,36 @@ Together, these fields enable hybrid search: BM25 over `text` and KNN over `embe
 - Error handling: `ollama.ResponseError` caught; function returns `None` to UI.
 - Hallucination reduction: Hybrid search context grounds responses; low temperature; include conversation history for coherence.
 
+### Generation Parameters — Temperature, Top‑P, and Top‑K
+These settings affect how the LLM chooses the next token at each step.
+
+- **Temperature:** Rescales token probabilities via softmax smoothing.
+	- Lower values (0.1–0.5): more deterministic and concise.
+	- Higher values (0.7–1.0): more varied and creative.
+
+- **Top‑P (nucleus sampling):** Limits sampling to the smallest set of tokens whose cumulative probability mass is ≤ top_p.
+	- Lower values (0.3–0.6): conservative; avoids long‑tail tokens → fewer hallucinations.
+	- Higher values (0.8–1.0): broader candidate set → more diversity.
+
+- **Top‑K (generation):** Restricts sampling to the top K most probable tokens.
+	- Lower values (e.g., 20–50): tighter outputs, fewer rare words.
+	- Higher values (e.g., 100–200): more variety; can increase noise.
+
+Recommended for RAG (grounded answers):
+- **Default:** temperature ≈ 0.4–0.7, top_p ≈ 0.85–0.95, top_k ≈ 40–100.
+- If hallucinations appear: lower temperature and/or top_p; reduce top_k.
+- If responses feel rigid: increase temperature slightly or top_p.
+
+Example Ollama options (in `chat.py`):
+```
+options = {"temperature": 0.6, "top_p": 0.9, "top_k": 50}
+ollama.chat(model=..., messages=[...], stream=True, options=options)
+```
+
+Important distinction with retrieval:
+- **Retrieval `top_k` (OpenSearch):** The number of results returned from vector/keyword search (see section 7). This is unrelated to generation top_k. Retrieval `top_k` controls how many context chunks enter the prompt.
+- **Generation `top_k`:** The number of top tokens considered when sampling the model’s next token.
+
 ## 10. Docker & Infrastructure
 ### 10.1 OpenSearch via Docker (recommended)
 Start OpenSearch locally:
@@ -468,6 +497,21 @@ Here’s a concise cheat sheet for OpenSearch Dashboards Dev Tools.
 			"_source": ["text", "document_name"],
 			"size": 5
 		}`
+ - Hybrid search (BM25 + KNN) in Dev Tools
+	- `POST documents/_search?search_pipeline=nlp-search-pipeline
+		{
+			"_source": { "exclude": ["embedding"] },
+			"query": {
+				"hybrid": {
+					"queries": [
+						{ "match": { "text": { "query": "What is my CGPA?" } } },
+						{ "knn": { "embedding": { "vector": [ /* 768 floats */ ], "k": 5 } } }
+					]
+				}
+			},
+			"size": 5
+		}`
+	- Note: Replace `[ /* 768 floats */ ]` with a real 768‑d vector (e.g., from `SentenceTransformer(all-mpnet-base-v2).encode(...).tolist()`). An empty or wrong‑length vector returns 400 `[knn] query vector is empty`.
 - Aggregation (list distinct document names)
 	- `GET documents/_search
 		{
